@@ -1,7 +1,9 @@
 import { Text } from "react-native";
+import { keywords } from "placehoder-data";
 
 const KeywordScreen = () => {
-  return <Text>KeywordScreen</Text>;
+  // console.log(keywords);
+  return <Text>ㅇㅇ</Text>;
 };
 
 export default KeywordScreen;

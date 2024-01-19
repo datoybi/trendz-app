@@ -4,6 +4,7 @@
     "slug": "trendz-app",
     "experiments": {
       "tsconfigPaths": false
-    }
+    },
+    "plugins": [["expo-font", { "fonts": ["assets/fonts/Pretendard-Regular.ttf"] }]]
   }
 }

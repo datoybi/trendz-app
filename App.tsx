@@ -1,31 +1,40 @@
+import { useEffect, useCallback } from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AppLoading from "expo-app-loading";
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
 
 import KeywordScreen from "screens/KeywordScreen";
 import EntertainmentScreen from "screens/EntertainmentScreen";
 import SocialScreen from "screens/SocialScreen";
 
 const BottomTab = createBottomTabNavigator();
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     pretendard: require("./assets/fonts/Pretendard-Regular.ttf"),
     "pretendard-bold": require("./assets/fonts/Pretendard-Bold.ttf"),
   });
 
-  if (!fontLoaded) {
-    return <AppLoading />;
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
   }
 
   return (
     <NavigationContainer>
       <BottomTab.Navigator>
         <BottomTab.Screen
-          name="키워드"
+          name="구글 키워드"
           component={KeywordScreen}
           options={{
             tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
