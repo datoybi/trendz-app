@@ -1,11 +1,10 @@
-import { useEffect, useCallback } from "react";
-import { StyleSheet } from "react-native";
+import { useCallback } from "react";
+import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import * as Font from "expo-font";
 
 import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
@@ -31,34 +30,40 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <BottomTab.Navigator>
-        <BottomTab.Screen
-          name="구글 키워드"
-          component={KeywordScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
-          }}
-        />
-        <BottomTab.Screen
-          name="Social"
-          component={SocialScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => <Ionicons name="people" color={color} size={size} />,
-          }}
-        />
-        <BottomTab.Screen
-          name="Entertainment"
-          component={EntertainmentScreen}
-          options={{
-            tabBarIcon: ({ color, size }) => (
-              <Ionicons name="musical-notes" color={color} size={size} />
-            ),
-          }}
-        />
-      </BottomTab.Navigator>
-    </NavigationContainer>
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <NavigationContainer>
+        <BottomTab.Navigator>
+          <BottomTab.Screen
+            name="구글 키워드"
+            component={KeywordScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
+            }}
+          />
+          <BottomTab.Screen
+            name="Social"
+            component={SocialScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => <Ionicons name="people" color={color} size={size} />,
+            }}
+          />
+          <BottomTab.Screen
+            name="Entertainment"
+            component={EntertainmentScreen}
+            options={{
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="musical-notes" color={color} size={size} />
+              ),
+            }}
+          />
+        </BottomTab.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
 
-// const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

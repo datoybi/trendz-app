@@ -21,7 +21,6 @@ module.exports = function (api) {
           ],
           alias: {
             "@": "./src",
-            "@const": "./src/const",
           },
         },
       ],
