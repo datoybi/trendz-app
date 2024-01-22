@@ -1,5 +1,5 @@
 import { Text } from "react-native";
-import { keywords } from "placehoder-data";
+// import { keywords } from "placeholder-data";
 
 const KeywordScreen = () => {
   // console.log(keywords);

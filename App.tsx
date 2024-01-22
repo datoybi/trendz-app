@@ -7,9 +7,9 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
-import KeywordScreen from "screens/KeywordScreen";
-import EntertainmentScreen from "screens/EntertainmentScreen";
-import SocialScreen from "screens/SocialScreen";
+import KeywordScreen from "@/screens/KeywordScreen";
+import EntertainmentScreen from "@/screens/EntertainmentScreen";
+import SocialScreen from "@/screens/SocialScreen";
 
 const BottomTab = createBottomTabNavigator();
 SplashScreen.preventAutoHideAsync();
