@@ -1,7 +1,7 @@
 export const keywords = [
   {
     pubDate: "Wed, 15 Nov 2023 16:00:00 +0900",
-    keyword: "브로커 숨진 발견",
+    keyword: "브로커 숨진 채 발견",
     traffic: "5,000+",
     news: [
       {

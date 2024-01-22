@@ -5,6 +5,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import theme from "@/styles/theme";
+import { ThemeProvider } from "styled-components";
 
 import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
@@ -30,35 +32,39 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <NavigationContainer>
-        <BottomTab.Navigator>
-          <BottomTab.Screen
-            name="구글 키워드"
-            component={KeywordScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
-            }}
-          />
-          <BottomTab.Screen
-            name="Social"
-            component={SocialScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => <Ionicons name="people" color={color} size={size} />,
-            }}
-          />
-          <BottomTab.Screen
-            name="Entertainment"
-            component={EntertainmentScreen}
-            options={{
-              tabBarIcon: ({ color, size }) => (
-                <Ionicons name="musical-notes" color={color} size={size} />
-              ),
-            }}
-          />
-        </BottomTab.Navigator>
-      </NavigationContainer>
-    </View>
+    <ThemeProvider theme={theme}>
+      <View style={styles.container} onLayout={onLayoutRootView}>
+        <NavigationContainer>
+          <BottomTab.Navigator>
+            <BottomTab.Screen
+              name="구글 키워드"
+              component={KeywordScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
+              }}
+            />
+            <BottomTab.Screen
+              name="Social"
+              component={SocialScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="people" color={color} size={size} />
+                ),
+              }}
+            />
+            <BottomTab.Screen
+              name="Entertainment"
+              component={EntertainmentScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="musical-notes" color={color} size={size} />
+                ),
+              }}
+            />
+          </BottomTab.Navigator>
+        </NavigationContainer>
+      </View>
+    </ThemeProvider>
   );
 }
 
