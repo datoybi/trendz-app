@@ -12,6 +12,7 @@ import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
 import SocialScreen from "@/screens/SocialScreen";
 import YoutubeScreen from "@/screens/YoutubeScreen";
+import OTTScreen from "@/screens/OTTScreen";
 
 const BottomTab = createBottomTabNavigator();
 SplashScreen.preventAutoHideAsync();
@@ -49,25 +50,25 @@ export default function App() {
               component={YoutubeScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="logo-youtube" color={color} size={size} />
+                ),
+              }}
+            />
+            <BottomTab.Screen
+              name="OTT"
+              component={OTTScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
                   <Ionicons name="caret-forward-circle-outline" color={color} size={size} />
                 ),
               }}
             />
             <BottomTab.Screen
-              name="Social2"
+              name="영화"
               component={SocialScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
-                  <Ionicons name="people" color={color} size={size} />
-                ),
-              }}
-            />
-            <BottomTab.Screen
-              name="Social"
-              component={SocialScreen}
-              options={{
-                tabBarIcon: ({ color, size }) => (
-                  <Ionicons name="people" color={color} size={size} />
+                  <Ionicons name="film-outline" color={color} size={size} />
                 ),
               }}
             />
