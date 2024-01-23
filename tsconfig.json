@@ -21,5 +21,5 @@
   },
   "exclude": ["App.js", "App.test.js", "build", "node_modules"],
   "extends": "expo/tsconfig.base",
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "src/GlobalStyle.ts"]
 }

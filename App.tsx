@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, SafeAreaView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -11,36 +11,55 @@ import { ThemeProvider } from "styled-components";
 import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
 import SocialScreen from "@/screens/SocialScreen";
+import YoutubeScreen from "@/screens/YoutubeScreen";
 
 const BottomTab = createBottomTabNavigator();
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontError] = useFonts({
     pretendard: require("./assets/fonts/Pretendard-Regular.ttf"),
     "pretendard-bold": require("./assets/fonts/Pretendard-Bold.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded) {
+    if (fontsLoaded || fontError) {
       await SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded) {
+  if (!fontsLoaded && !fontError) {
     return null;
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <View style={styles.container} onLayout={onLayoutRootView}>
+      <SafeAreaView style={styles.container} onLayout={onLayoutRootView}>
         <NavigationContainer>
-          <BottomTab.Navigator>
+          <BottomTab.Navigator screenOptions={{ headerShown: false }}>
             <BottomTab.Screen
-              name="구글 키워드"
+              name="키워드"
               component={KeywordScreen}
               options={{
                 tabBarIcon: ({ color, size }) => <Ionicons name="apps" color={color} size={size} />,
+              }}
+            />
+            <BottomTab.Screen
+              name="유튜브"
+              component={YoutubeScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="caret-forward-circle-outline" color={color} size={size} />
+                ),
+              }}
+            />
+            <BottomTab.Screen
+              name="Social2"
+              component={SocialScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="people" color={color} size={size} />
+                ),
               }}
             />
             <BottomTab.Screen
@@ -63,7 +82,7 @@ export default function App() {
             />
           </BottomTab.Navigator>
         </NavigationContainer>
-      </View>
+      </SafeAreaView>
     </ThemeProvider>
   );
 }
@@ -71,5 +90,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
+    fontFamily: "pretendard",
   },
 });

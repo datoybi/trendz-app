@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { Text, FlatList, View, Image, Linking } from "react-native";
 import { keywords } from "../../placeholder-data";
 import styled from "styled-components/native";
@@ -5,7 +6,9 @@ import dayjs from "dayjs";
 import { decode } from "html-entities";
 
 const KeywordScreen = () => {
-  // console.log(JSON.stringify(keywords, null, "\t"));
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({ title: "구글 핫 키워드" });
+  // }, []);
 
   const renderItem = ({ item }: { item: any }) => {
     return (
@@ -44,41 +47,35 @@ export default KeywordScreen;
 
 const Container = styled.View`
   display: flex;
-  flex: 1;
   flex-direction: row;
   height: 180px;
   margin: 10px 0 5px 0;
+  border-bottom-color: ${({ theme }: any) => theme.colors.primary400};
+  border-bottom-width: 1px;
 `;
 
 const ImageContainer = styled.View`
-  border: 1px solid;
   width: 100%;
-  /* align-items: flex-start; */
   flex-direction: column;
   align-items: flex-start;
-  background-color: aquamarine;
   flex: 1;
 `;
 
+const Thumbnail = styled.Image`
+  width: 100%;
+  height: 120px;
+`;
+
 const TextContainer = styled.View`
-  /* border: 1px solid; */
   flex: 2;
   padding: 0 10px;
 `;
 
-const Thumbnail = styled.Image`
-  min-height: 180px;
-  width: 100%;
-`;
-
 const DateText = styled.Text`
   font-size: 20px;
-  /* border-bottom-color: ${({ theme }: any) => theme.colors.primary400}; */
-  /* border-bottom-width: 1px; */
 `;
 
 const KeywordText = styled.Text`
-  /* background-color: ${({ theme }: any) => theme.colors.accent500}; */
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -86,5 +83,6 @@ const KeywordText = styled.Text`
 
 const NewsTitle = styled.Text`
   font-size: 15px;
+  text-decoration: underline;
   margin-bottom: 5px;
 `;

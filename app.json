@@ -2,8 +2,13 @@
   "expo": {
     "name": "trendz-app",
     "slug": "trendz-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
     "experiments": {
       "tsconfigPaths": false
+    },
+    "splash": {
+      "backgroundColor": "#ffffff"
     },
     "plugins": [["expo-font", { "fonts": ["assets/fonts/Pretendard-Regular.ttf"] }]]
   }
