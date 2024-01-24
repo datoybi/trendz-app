@@ -55,6 +55,15 @@ export default function App() {
               }}
             />
             <BottomTab.Screen
+              name="메인"
+              component={EntertainmentScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Ionicons name="earth-outline" color={color} size={size} />
+                ),
+              }}
+            />
+            <BottomTab.Screen
               name="OTT"
               component={OTTScreen}
               options={{
@@ -69,15 +78,6 @@ export default function App() {
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <Ionicons name="film-outline" color={color} size={size} />
-                ),
-              }}
-            />
-            <BottomTab.Screen
-              name="Entertainment"
-              component={EntertainmentScreen}
-              options={{
-                tabBarIcon: ({ color, size }) => (
-                  <Ionicons name="musical-notes" color={color} size={size} />
                 ),
               }}
             />

@@ -1,4 +1,4 @@
-import { FlatList, Text, View, Image } from "react-native";
+import { FlatList, Text, View, Image, ScrollView } from "react-native";
 import { ott } from "../../placeholder-data";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
@@ -23,32 +23,65 @@ const OTTScreen = () => {
 
   const renderItem = ({ item }: any) => {
     return (
-      <Container width={itemWidth}>
+      <Item width={itemWidth}>
         <Thumbnail source={ottImagePath[item.ranking]} style={{ resizeMode: "cover" }} />
         <Title>{item.title}</Title>
         <Ranking>{item.ranking}</Ranking>
         <Platform>{item.ott.join(", ")}</Platform>
-      </Container>
+      </Item>
     );
   };
 
   return (
-    <FlatList
-      data={ott}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.ranking.toString()}
-      numColumns={3}
-      contentContainerStyle={{ gap: 10 }}
-      columnWrapperStyle={{ gap: 10 }}
-    />
+    <Container>
+      <ScrollView showsHorizontalScrollIndicator={false}>
+        <Heading>드라마</Heading>
+        <ListWrapper>
+          {ott.map((item, index) => (
+            <Item key={index} width={itemWidth}>
+              <Thumbnail source={ottImagePath[item.ranking]} style={{ resizeMode: "cover" }} />
+              <Title>{item.title}</Title>
+              <Ranking>{item.ranking}</Ranking>
+              <Platform>{item.ott.join(", ")}</Platform>
+            </Item>
+          ))}
+        </ListWrapper>
+
+        <Heading>예능</Heading>
+        <ListWrapper>
+          {ott.map((item, index) => (
+            <Item key={index} width={itemWidth}>
+              <Thumbnail source={ottImagePath[item.ranking]} style={{ resizeMode: "cover" }} />
+              <Title>{item.title}</Title>
+              <Ranking>{item.ranking}</Ranking>
+              <Platform>{item.ott.join(", ")}</Platform>
+            </Item>
+          ))}
+        </ListWrapper>
+      </ScrollView>
+    </Container>
   );
 };
 
 export default OTTScreen;
 
-const Container = styled.View`
-  /* border: 1px solid; */
+const Container = styled.View``;
+
+const ListWrapper = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+`;
+
+const Heading = styled.Text`
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0;
+`;
+
+const Item = styled.View`
   width: ${(props: any) => props.width}px;
+  /* border: 1px solid; */
 `;
 
 const Thumbnail = styled.Image`
@@ -70,6 +103,7 @@ const Ranking = styled.Text`
   font-size: 25px;
   font-style: italic;
   left: 5px;
+  top: 5px;
 `;
 
 const Platform = styled.Text`
