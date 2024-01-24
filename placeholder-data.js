@@ -538,6 +538,69 @@ export const youtube = [
   },
 ];
 
+export const ott = [
+  {
+    ranking: 1,
+    title: "웰컴투 삼달리",
+    ott: ["Netflix", "TVing"],
+    imgURL: "ott-1.png",
+  },
+  {
+    ranking: 2,
+    title: "세작, 매혹된 자들",
+    ott: ["Netflix", "TVing"],
+    imgURL: "ott-2.png",
+  },
+  {
+    ranking: 3,
+    title: "선산",
+    ott: ["Netflix"],
+    imgURL: "ott-3.png",
+  },
+  {
+    ranking: 4,
+    title: "밤에 피는 꽃",
+    ott: ["Wavve", "Coupang play"],
+    imgURL: "ott-4.png",
+  },
+  {
+    ranking: 5,
+    title: "천박사 퇴마 연구소: 설경의 비밀",
+    ott: ["Netflix", "TVing"],
+    imgURL: "ott-5.png",
+  },
+  {
+    ranking: 6,
+    title: "LTNS",
+    ott: ["TVing"],
+    imgURL: "ott-6.png",
+  },
+  {
+    ranking: 7,
+    title: "내 남편과 결혼해줘",
+    ott: ["TVing"],
+    imgURL: "ott-7.png",
+  },
+  {
+    ranking: 8,
+    title: "킬러들의 쇼핑몰",
+    ott: ["Wavve"],
+    imgURL: "ott-8.png",
+  },
+  {
+    ranking: 9,
+    title: "외계+인 1부",
+    ott: ["Netflix", "Watcha", "TVing"],
+    imgURL: "ott-9.png",
+  },
+  {
+    ranking: 10,
+    title: "마이 데몬",
+    ott: ["Netflix", "Wavve"],
+    imgURL: "ott-10.png",
+  },
+];
+
 export const music = [
   {
     album: "Perfect Night",
