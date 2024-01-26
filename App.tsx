@@ -10,7 +10,7 @@ import { ThemeProvider } from "styled-components";
 
 import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
-import SocialScreen from "@/screens/SocialScreen";
+import MovieScreen from "@/screens/MovieScreen";
 import YoutubeScreen from "@/screens/YoutubeScreen";
 import OTTScreen from "@/screens/OTTScreen";
 
@@ -54,7 +54,7 @@ export default function App() {
                 ),
               }}
             />
-            <BottomTab.Screen
+            {/* <BottomTab.Screen
               name="메인"
               component={EntertainmentScreen}
               options={{
@@ -62,7 +62,7 @@ export default function App() {
                   <Ionicons name="earth-outline" color={color} size={size} />
                 ),
               }}
-            />
+            /> */}
             <BottomTab.Screen
               name="OTT"
               component={OTTScreen}
@@ -74,7 +74,7 @@ export default function App() {
             />
             <BottomTab.Screen
               name="영화"
-              component={SocialScreen}
+              component={MovieScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <Ionicons name="film-outline" color={color} size={size} />
