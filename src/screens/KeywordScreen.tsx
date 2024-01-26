@@ -6,17 +6,13 @@ import dayjs from "dayjs";
 import { decode } from "html-entities";
 
 const KeywordScreen = () => {
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({ title: "구글 핫 키워드" });
-  // }, []);
-
   const renderItem = ({ item }: { item: any }) => {
     return (
       <>
         <DateText>{dayjs(item.pubDate).format("YYYY.MM.DD")}</DateText>
         <Container>
           <ImageContainer>
-            <Thumbnail source={{ uri: item.imgURL }} style={{ resizeMode: "contain" }} />
+            <Thumbnail source={{ uri: item.imgURL }} style={{ resizeMode: "cover" }} />
           </ImageContainer>
           <TextContainer>
             <KeywordText>{decode(item.keyword)}</KeywordText>
@@ -33,25 +29,30 @@ const KeywordScreen = () => {
   };
 
   return (
-    <>
+    <Wrapper>
       <FlatList
         data={keywords}
         renderItem={renderItem}
         keyExtractor={(item) => item.pubDate + item.keyword}
       />
-    </>
+    </Wrapper>
   );
 };
 
 export default KeywordScreen;
 
+const Wrapper = styled.View`
+  margin: 3%;
+`;
+
 const Container = styled.View`
   display: flex;
   flex-direction: row;
-  height: 180px;
+  height: 150px;
   margin: 10px 0 5px 0;
   border-bottom-color: ${({ theme }: any) => theme.colors.primary400};
-  border-bottom-width: 1px;
+  background-color: #ffffff;
+  border-radius: 16px;
 `;
 
 const ImageContainer = styled.View`
@@ -64,6 +65,7 @@ const ImageContainer = styled.View`
 const Thumbnail = styled.Image`
   width: 100%;
   height: 120px;
+  border-radius: 16px 0 0 0;
 `;
 
 const TextContainer = styled.View`
@@ -83,6 +85,6 @@ const KeywordText = styled.Text`
 
 const NewsTitle = styled.Text`
   font-size: 15px;
-  text-decoration: underline;
+  color: ${({ theme }: any) => theme.colors.primary600};
   margin-bottom: 5px;
 `;

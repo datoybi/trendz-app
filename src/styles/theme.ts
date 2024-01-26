@@ -4,6 +4,7 @@ const colors = {
   primary50: "#fafafa",
   primary100: "#f5f5f5",
   primary200: "#eeeeee",
+  primary300: "#e0e0e0",
   primary400: "#bdbdbd",
   primary500: "#9e9e9e",
   primary600: "#757575",

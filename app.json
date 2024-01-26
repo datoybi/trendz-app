@@ -8,7 +8,7 @@
       "tsconfigPaths": false
     },
     "splash": {
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#e0e0e0"
     },
     "plugins": [["expo-font", { "fonts": ["assets/fonts/Pretendard-Regular.ttf"] }]]
   }

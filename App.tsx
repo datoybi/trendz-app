@@ -7,7 +7,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import theme from "@/styles/theme";
 import { ThemeProvider } from "styled-components";
-
+// 패드는 웹뷰로 가능???????????
 import KeywordScreen from "@/screens/KeywordScreen";
 import EntertainmentScreen from "@/screens/EntertainmentScreen";
 import MovieScreen from "@/screens/MovieScreen";
