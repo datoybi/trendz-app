@@ -65,6 +65,7 @@ const Heading = styled.Text`
   font-size: 30px;
   font-weight: bold;
   margin: 20px 0;
+  /* font-family: "pretendard-bold"; */
 `;
 
 const Item = styled.View`

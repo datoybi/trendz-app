@@ -7,9 +7,10 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import theme from "@/styles/theme";
 import { ThemeProvider } from "styled-components";
-// 패드는 웹뷰로 가능???????????
+// 패드는 웹뷰로
+// 다크 모드 세팅
 import KeywordScreen from "@/screens/KeywordScreen";
-import EntertainmentScreen from "@/screens/EntertainmentScreen";
+// import EntertainmentScreen from "@/screens/EntertainmentScreen";
 import MovieScreen from "@/screens/MovieScreen";
 import YoutubeScreen from "@/screens/YoutubeScreen";
 import OTTScreen from "@/screens/OTTScreen";
@@ -21,6 +22,7 @@ export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     pretendard: require("./assets/fonts/Pretendard-Regular.ttf"),
     "pretendard-bold": require("./assets/fonts/Pretendard-Bold.ttf"),
+    "pretendard-extra-bold": require("./assets/fonts/Pretendard-ExtraBold.otf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -92,6 +94,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 50,
-    fontFamily: "pretendard",
+    // fontFamily: "pretendard",
   },
 });
