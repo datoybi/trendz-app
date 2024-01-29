@@ -1,7 +1,9 @@
-import { FlatList, Text, View, Image, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 import { movie } from "../../placeholder-data";
 import styled from "styled-components/native";
 import { Dimensions } from "react-native";
+import Title from "@/components/ui/Title";
+import { DefaultTheme } from "styled-components";
 
 const deviceWidth = Dimensions.get("window").width;
 
@@ -11,14 +13,14 @@ const MovieScreen = () => {
   return (
     <Container>
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <Heading>드라마</Heading>
+        <Title>요즘 상영하는 영화와{"\n"}예매 순위</Title>
         <ListWrapper>
           {movie.map((item, index) => (
             <Item key={index} width={itemWidth}>
               <Thumbnail source={{ uri: item.posterURL }} style={{ resizeMode: "cover" }} />
-              <Title>{item.title}</Title>
+              <MovieTitle>{item.title}</MovieTitle>
               <Ranking>{item.ranking}</Ranking>
-              <Platform>{item.rate}</Platform>
+              <Rate>{item.rate}</Rate>
             </Item>
           ))}
         </ListWrapper>
@@ -29,32 +31,28 @@ const MovieScreen = () => {
 
 export default MovieScreen;
 
-const Container = styled.View``;
+const Container = styled.View`
+  margin: 3% 0;
+`;
 
 const ListWrapper = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
-`;
-
-const Heading = styled.Text`
-  font-size: 30px;
-  font-weight: bold;
-  margin: 20px 0;
+  margin-top: 15px;
 `;
 
 const Item = styled.View`
-  width: ${(props: any) => props.width}px;
-  /* border: 1px solid; */
+  width: ${({ width }: { width: string }) => width}px;
 `;
 
 const Thumbnail = styled.Image`
   height: 200px;
-  width: ${(props: any) => props.width}px;
+  width: ${({ width }: { width: string }) => width}px;
   position: relative;
 `;
 
-const Title = styled.Text`
+const MovieTitle = styled.Text`
   font-size: 17px;
   text-align: center;
   font-weight: bold;
@@ -63,14 +61,14 @@ const Title = styled.Text`
 
 const Ranking = styled.Text`
   position: absolute;
-  color: ${({ theme }: any) => theme.colors.primary100};
+  color: ${({ theme }: { theme: DefaultTheme }) => theme.colors.primary100};
   font-size: 25px;
   font-style: italic;
   left: 5px;
   top: 5px;
 `;
 
-const Platform = styled.Text`
+const Rate = styled.Text`
   font-size: 15px;
   text-align: center;
 `;
